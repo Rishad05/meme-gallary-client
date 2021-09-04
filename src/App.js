@@ -1,10 +1,13 @@
 
 import './App.css';
+import AddMeme from './Compnent/AddMeme/AddMeme';
+import MemeGallary from './Compnent/MemeGallary/MemeGallary';
 
 function App() {
   return (
     <div className="App">
-     <h1>hey</h1>
+     <AddMeme/>
+     <MemeGallary/>
     </div>
   );
 }
