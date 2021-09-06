@@ -30,7 +30,7 @@ const AddMeme = () => {
       imageUrl: imageUrl,
     };
     try {
-      const res = await axios.post("http://localhost:5000/addMeme", memeData);
+      const res = await axios.post("https://mysterious-falls-27814.herokuapp.com/addMeme", memeData);
       if (res) {
         e.target.reset();
         alert("Image Upload successfully");
@@ -45,7 +45,7 @@ const AddMeme = () => {
       link: e.target.link.value,
     };
     try {
-      const res = await axios.post("http://localhost:5000/addMeme", memeData);
+      const res = await axios.post("https://mysterious-falls-27814.herokuapp.com/addMeme", memeData);
       if (res) {
         e.target.reset();
         alert("Image Upload successfully");

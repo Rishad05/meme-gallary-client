@@ -4,13 +4,13 @@ const ManageMeme = () => {
   const [showMeme, setShowMeme] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allMeme")
+    fetch("https://mysterious-falls-27814.herokuapp.com/allMeme")
       .then((res) => res.json())
       .then((data) => setShowMeme(data));
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteMeme/${id}`, {
+    fetch(`https://mysterious-falls-27814.herokuapp.com/deleteMeme/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -22,7 +22,7 @@ const ManageMeme = () => {
       });
   };
   const deleteMeme = () => {
-    fetch(`http://localhost:5000/allMeme`)
+    fetch(`https://mysterious-falls-27814.herokuapp.com/allMeme`)
       .then((res) => res.json())
       .then((data) => setShowMeme(data));
   };

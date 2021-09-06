@@ -5,7 +5,7 @@ import "./MemeGallary.css";
 const MemeGallary = () => {
   const [showMeme, setShowMeme] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allMeme")
+    fetch("https://mysterious-falls-27814.herokuapp.com/allMeme")
       .then((res) => res.json())
       .then((data) => setShowMeme(data));
   }, []);

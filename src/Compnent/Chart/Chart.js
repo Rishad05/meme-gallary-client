@@ -9,7 +9,7 @@ const Chart = () => {
   const chart = () => {
     let meme = [gallery.length];
     axios
-      .get("http://localhost:5000/allMeme")
+      .get("https://mysterious-falls-27814.herokuapp.com/allMeme")
       .then((res) => {
         setGallery(res);
         setChartData({
