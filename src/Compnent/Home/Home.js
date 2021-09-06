@@ -1,5 +1,6 @@
 import React from "react";
 import AddMeme from "../AddMeme/AddMeme";
+import Footer from "../Footer/Footer";
 import MemeGallary from "../MemeGallary/MemeGallary";
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
       </nav>
       <AddMeme />
       <MemeGallary />
+      <Footer />
     </div>
   );
 };
