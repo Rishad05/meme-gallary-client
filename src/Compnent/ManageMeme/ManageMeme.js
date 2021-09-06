@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./ManageMeme.css";
 const ManageMeme = () => {
   const [showMeme, setShowMeme] = useState([]);
@@ -33,7 +34,7 @@ const ManageMeme = () => {
           MANAGE MEME
         </h2>
         <div className="col-md-12">
-         <h4><a className="btn btn-outline-dark fw-bolder" href="/home"> Back to Home</a></h4>
+         <h4><Link className="btn btn-outline-dark fw-bolder" to="/home"> Back to Home</Link></h4>
           <table className="table table-sm table-info text-center table-bordered ">
             <thead>
               <tr>

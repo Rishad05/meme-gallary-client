@@ -93,9 +93,9 @@ const AddMeme = () => {
           </div>
         </form>
         <div className="d-flex justify-content-center">
-          <a className="btn btn-outline-danger" href="/deleteMeme">
+          <Link className="btn btn-outline-danger" to="/deleteMeme">
             Manage Meme
-          </a>
+          </Link>
         </div>
       </div>
     </section>
