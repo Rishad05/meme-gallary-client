@@ -15,14 +15,7 @@
 .gallery .pics:hover{
     filter:opacity(.8)
 }
-@media (max-width: 768px){
-    .gallery{
-        -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-    }
-}
-@media (max-width: 480px){
+@media (max-width: 600px){
     .gallery{
         -webkit-column-count: 1;
         -moz-column-count: 1;

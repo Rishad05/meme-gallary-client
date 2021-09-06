@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import './AddMeme.css';
 
 const AddMeme = () => {
   const [imageUrl, setImageUrl] = useState(null);
@@ -22,10 +24,24 @@ const AddMeme = () => {
     newInfo[e.target.name] = e.target.value;
     setMeme(newInfo);
   };
-  const handleSubmit = async (e) => {
+  const handleSubmitUpload = async (e) => {
     e.preventDefault();
     const memeData = {
       imageUrl: imageUrl,
+    };
+    try {
+      const res = await axios.post("http://localhost:5000/addMeme", memeData);
+      if (res) {
+        e.target.reset();
+        alert("Image Upload successfully");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handleSubmitLink = async (e) => {
+    e.preventDefault();
+    const memeData = {
       link: e.target.link.value,
     };
     try {
@@ -36,46 +52,51 @@ const AddMeme = () => {
       }
     } catch (error) {
       console.error(error);
-      console.log(memeData);
     }
   };
   return (
-    <section>
-      <form class="row  ml-5 p-3" onSubmit={handleSubmit}>
-        <div className="col-md-3 mb-2 ">
-          <input
-            type="text"
-            name="link"
-            required
-            onBlur={handleBlur}
-            class="form-control"
-            placeholder="Add Meme By link ...."
-          />
+    <section className="container">
+      <Link className="d-flex justify-content-center fw-bolder mb-2 stats " to="/chart"> See Stat</Link>
+      <div className="row d-flex justify-content-between">
+        <form className="col-md-5 d-flex mb-2 " onSubmit={handleSubmitLink}>
+          <div className="w-75">
+            <input
+              type="text"
+              name="link"
+              class="form-control"
+              required
+              onBlur={handleBlur}
+              placeholder="Add Meme By link ...."
+            />
+          </div>
+          <div className="w-30">
+            <button type="Submit" className="btn btn-outline-success ">
+              AddMeme
+            </button>
+          </div>
+        </form>
+          
+        <form className="col-md-5 d-flex mb-2" onSubmit={handleSubmitUpload}>
+          <div className="w-75">
+            <input
+              class="form-control"
+              onChange={handleImageUpload}
+              type="file"
+              name="image"
+              required
+            />
+          </div>
+          <div className="mb-3 w-30">
+            <button type="Submit" className="btn btn-outline-success">
+              Upload
+            </button>
+          </div>
+        </form>
+        <div className="d-flex justify-content-center">
+          <a className="btn btn-outline-danger" href="/deleteMeme">
+            Manage Meme
+          </a>
         </div>
-        <div className="col-md-3 d-flex align-items-center mb-2">
-          <button type="Submit" className="btn btn-outline-success">
-            AddMeme
-          </button>
-        </div>
-        <div className="col-md-3 mb-2">
-          <input
-            class="form-control"
-            onChange={handleImageUpload}
-            type="file"
-            name="image"
-          />
-        </div>
-        <div className="col-md-3 d-flex align-items-center mb-2">
-          <button type="Submit" className="btn btn-outline-success">
-            Upload
-          </button>
-          <br />
-        </div>
-      </form>
-      <div className="container">
-        <a className="btn btn-outline-danger" href="/deleteMeme">
-          Manage Meme
-        </a>
       </div>
     </section>
   );

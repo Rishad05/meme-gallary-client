@@ -33,7 +33,7 @@ const ManageMeme = () => {
           MANAGE MEME
         </h2>
         <div className="col-md-12">
-         
+         <h4><a className="btn btn-outline-dark fw-bolder" href="/home"> Back to Home</a></h4>
           <table className="table table-sm table-info text-center table-bordered ">
             <thead>
               <tr>
@@ -42,8 +42,8 @@ const ManageMeme = () => {
               </tr>
             </thead>
             {showMeme.map((meme) => (
-              <tbody className="bg-secondary">
-                <td className="w-25 text-light">
+              <tbody className="bg-dark">
+                <td className="w-25 text-light p-3">
                   <img
                     style={{ width: "8rem", height: "8rem" }}
                     src={meme.imageUrl || meme.link}

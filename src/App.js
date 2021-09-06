@@ -2,6 +2,7 @@ import "./App.css";
 import ManageMeme from "./Compnent/ManageMeme/ManageMeme";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Compnent/Home/Home";
+import Chart from "./Compnent/Chart/Chart";
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
         </Route>
         <Route path="/deleteMeme">
           <ManageMeme></ManageMeme>
+        </Route>
+        <Route path="/chart">
+          <Chart />
         </Route>
         <Route path="/">
           <Home></Home>
